@@ -14,6 +14,7 @@ with app.app_context():
     BakedGood.query.delete()
     Bakery.query.delete()
     
+    print( "Creating bakeries..." )
     bakeries = []
     for i in range(20):
         b = Bakery(
@@ -23,6 +24,7 @@ with app.app_context():
     
     db.session.add_all(bakeries)
 
+    print( "Creating baked_goods...")
     baked_goods = []
     names = []
     for i in range(200):
@@ -47,3 +49,5 @@ with app.app_context():
     most_expensive_baked_good.price = 100
     db.session.add(most_expensive_baked_good)
     db.session.commit()
+
+    print( "Database seeded!" )
